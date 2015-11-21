@@ -1,0 +1,17 @@
+{
+    "contents" : "#ui.R \n\nlibrary(shiny)\n\nnavbarPage(\n  title = \"DV_SProject\",\n  tabPanel(title = \"Scatter Plot\",\n     sidebarPanel(\n       textInput(inputId = \"title\", \n                 label = \"Scatter Plot Title\",\n                 value = \"Scatter Plot\"),\n       actionButton(inputId = \"clicks1\",  label = \"Click me\")\n     ),\n     \n     mainPanel(plotOutput(\"distPlot1\")\n     )\n  ),\n  tabPanel(title = \"CrossTab\",\n     sidebarPanel(\n       actionButton(inputId = \"clicks2\",  label = \"Click me\")\n     ),\n     \n     mainPanel(plotOutput(\"distPlot2\")\n     )\n  ),\n  tabPanel(title = \"Barchart\",\n     sidebarPanel(\n       actionButton(inputId = \"clicks3\",  label = \"Click me\")\n     ),\n     \n     mainPanel(plotOutput(\"distPlot3\")\n     )        \n  )\n)\n  ",
+    "created" : 1448144069429.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4168085149",
+    "id" : "264A7A9E",
+    "lastKnownWriteTime" : 1448144725,
+    "path" : "~/DataVisualization/DV_SProject/02 Shiny/ui.R",
+    "project_path" : "02 Shiny/ui.R",
+    "properties" : {
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

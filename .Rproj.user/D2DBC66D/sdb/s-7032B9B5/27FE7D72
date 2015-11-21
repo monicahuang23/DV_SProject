@@ -1,0 +1,17 @@
+{
+    "contents" : "# server.R\nrequire(\"jsonlite\")\nrequire(\"RCurl\")\nrequire(ggplot2)\nrequire(dplyr)\nrequire(shiny)\nrequire(shinydashboard)\nrequire(leaflet)\n\nshinyServer(function(input, output) {\n    \n      df1 <- eventReactive(input$clicks1, {data.frame(fromJSON(getURL(URLencode(gsub(\"\\n\", \" \", 'skipper.cs.utexas.edu:5001/rest/native/?query=\"select * from final_grade\"')), httpheader=c(DB='jdbc:oracle:thin:@sayonara.microlab.cs.utexas.edu:1521:orcl', USER='C##cs329e_mh42375', PASS='orcl_mh42375', MODE='native_mode', MODEL='model', returnDimensions = 'False', returnFor = 'JSON'), verbose = TRUE)))\n      })\n\n      output$distPlot1 <- renderPlot({             \n            plot <- ggplot() + \n                  coord_cartesian() + \n                  scale_x_continuous() +\n                  scale_y_continuous() +\n                  labs(title=isolate(input$title)) +\n                  labs(x=paste(\"Spf P's Grad Rate\"), y=paste(\"Rank Total\")) +\n                  layer(data=df1(), \n                        mapping=aes(x=as.numeric(as.character(SPF_PS_IND_GRAD_RATE)), y=as.numeric(as.character(RANK_TOT)), color=FINAL_PLANTYPE),\n                        stat=\"identity\", \n                        stat_params=list(), \n                        geom=\"point\",\n                        #geom_params=list(colour=\"black\"), \n                        position=position_jitter(width=0.3, height=0)\n                  )\n            plot\n      }) \n\n      observeEvent(input$clicks, {\n            print(as.numeric(input$clicks))\n      })\n})",
+    "created" : 1448148859751.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3238522373",
+    "id" : "27FE7D72",
+    "lastKnownWriteTime" : 1448149693,
+    "path" : "~/DataVisualization/DV_SProject/02 Shiny/server.R",
+    "project_path" : "02 Shiny/server.R",
+    "properties" : {
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

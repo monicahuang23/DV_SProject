@@ -1,0 +1,18 @@
+{
+    "contents" : "---\ntitle: \"DV_SProject\"\nauthor: \"Monica and Rachel\"\ndate: \"November 21, 2015\"\noutput: html_document\n---\n\n",
+    "created" : 1448142409307.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2973611855",
+    "id" : "5A0F93CB",
+    "lastKnownWriteTime" : 1448142430,
+    "path" : "~/DataVisualization/DV_SProject/00 Doc/DV_SProject.Rmd",
+    "project_path" : "00 Doc/DV_SProject.Rmd",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "type" : "r_markdown"
+}
