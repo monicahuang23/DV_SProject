@@ -1,0 +1,17 @@
+{
+    "contents" : "#ui.R \n\nlibrary(shiny)\n\nnavbarPage(\n  title = \"Elements of Visualization\",\n  tabPanel(title = \"Crosstab\",\n     sidebarPanel(\n       actionButton(inputId = \"light\", label = \"Light\"),\n       actionButton(inputId = \"dark\", label = \"Dark\"),\n       sliderInput(\"KPI1\", \"KPI_Low_Max_value:\", \n                   min = 1, max = 4750,  value = 4750),\n       sliderInput(\"KPI2\", \"KPI_Medium_Max_value:\", \n                   min = 4750, max = 5000,  value = 5000),\n       textInput(inputId = \"title\", \n                 label = \"Crosstab Title\",\n                 value = \"Diamonds Crosstab\\nSUM_PRICE, SUM_CARAT, SUM_PRICE / SUM_CARAT\"),\n       actionButton(inputId = \"clicks1\",  label = \"Click me\")\n     ),\n     \n     mainPanel(plotOutput(\"distPlot1\")\n     )\n  ),\n  tabPanel(title = \"Barchart\",\n     sidebarPanel(\n       actionButton(inputId = \"clicks2\",  label = \"Click me\")\n     ),\n     \n     mainPanel(plotOutput(\"distPlot2\")\n     )\n  ),\n  tabPanel(title = \"Blending 2 Data Sources\",\n     sidebarPanel(\n       actionButton(inputId = \"clicks3\",  label = \"Click me\")\n     ),\n     \n     mainPanel(plotOutput(\"distPlot3\")\n     )        \n  )\n)\n  ",
+    "created" : 1448176717009.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4171083101",
+    "id" : "71BA8006",
+    "lastKnownWriteTime" : 1447974307,
+    "path" : "~/DataVisualization/RWorkshop/09 Shiny/03Crosstab/ui.R",
+    "project_path" : null,
+    "properties" : {
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

@@ -17,6 +17,9 @@ navbarPage(
   ),
   tabPanel(title = "CrossTab",
      sidebarPanel(
+       textInput(inputId = "title", 
+                 label = "CrossTab Title",
+                 value = "CrossTab"),
        actionButton(inputId = "clicks2",  label = "Click me")
      ),
      

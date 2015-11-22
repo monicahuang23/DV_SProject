@@ -14,7 +14,7 @@ shinyServer(function(input, output) {
       })
 
       output$distPlot1 <- renderPlot({             
-            plot <- ggplot() + 
+            plot1 <- ggplot() + 
                   coord_cartesian() + 
                   scale_x_continuous() +
                   scale_y_continuous() +
@@ -28,7 +28,7 @@ shinyServer(function(input, output) {
                         #geom_params=list(colour="black"), 
                         position=position_jitter(width=0.3, height=0)
                   )
-            plot
+            plot1
       }) 
 
       observeEvent(input$clicks, {
@@ -57,12 +57,12 @@ shinyServer(function(input, output) {
       })
       
       output$distPlot1 <- renderPlot({             
-            plot <- ggplot() + 
+            plot2 <- ggplot() + 
                   coord_cartesian() + 
                   scale_x_discrete() +
                   scale_y_discrete() +
                   labs(title=isolate(input$title)) +
-                  labs(x=paste("District Name"), y=paste("EMH")) +
+                  labs(x=paste("DistrictName"), y=paste("EMH")) +
                   layer(data=df2(), 
                         mapping=aes(x=DISTRICTNAME, y=EMH, label=KPI), 
                         stat="identity", 
@@ -79,7 +79,7 @@ shinyServer(function(input, output) {
                         geom_params=list(alpha=rv$alpha), 
                         position=position_identity()
                   )
-           plot
+           plot2
       }) 
       
       observeEvent(input$clicks, {
