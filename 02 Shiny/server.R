@@ -42,29 +42,29 @@ shinyServer(function(input, output) {
       observeEvent(input$light, { rv$alpha <- 0.50 })
       observeEvent(input$dark, { rv$alpha <- 0.75 })
       
-      df2 <- eventReactive(input$clicks1, {data.frame(fromJSON(getURL(URLencode(gsub("\n", " ", 'skipper.cs.utexas.edu:5001/rest/native/?query=
-            "select EMH, DISTRICTNAME, kpi,
+      df2 <- eventReactive(input$clicks2, {data.frame(fromJSON(getURL(URLencode(gsub("\n", " ", 'skipper.cs.utexas.edu:5001/rest/native/?query=
+            "select EMH, final_plantype, kpi,
             case                                                                                   when kpi < "p1" then \\\'Great\\\'
             when kpi < "p2" then \\\'Average\\\'
             else \\\'Ok\\\'
-            end kpi                                                                                from (select EMH, DISTRICTNAME, sum(RANK_TOT) as kpi
+            end kpi                                                                                from (select EMH, final_plantype, sum(RANK_TOT) as kpi
             from FINAL_GRADE 
-            where FINAL_PLANTYPE = \\\'Turnaround Plan\\\'
-            group by EMH, DISTRICTNAME)
-            order by DISTRICTNAME;"
+            where DISTRICTNAME = \\\'ADAMS 12 FIVE STAR SCHOOLS\\\'
+            group by EMH, final_plantype)
+            order by final_plantype;"
             ')), httpheader=c(DB='jdbc:oracle:thin:@sayonara.microlab.cs.utexas.edu:1521:orcl', USER='C##cs329e_mh42375', PASS='orcl_mh42375', 
                  MODE='native_mode', MODEL='model', returnDimensions = 'False', returnFor = 'JSON', p1=KPI_great(), p2=KPI_average()), verbose = TRUE)))
       })
       
-      output$distPlot1 <- renderPlot({             
+      output$distPlot2 <- renderPlot({             
             plot2 <- ggplot() + 
                   coord_cartesian() + 
                   scale_x_discrete() +
                   scale_y_discrete() +
                   labs(title=isolate(input$title)) +
-                  labs(x=paste("DistrictName"), y=paste("EMH")) +
+                  labs(x=paste("Final Plantype"), y=paste("EMH")) +
                   layer(data=df2(), 
-                        mapping=aes(x=DISTRICTNAME, y=EMH, label=KPI), 
+                        mapping=aes(x=FINAL_PLANTYPE, y=EMH, label=KPI), 
                         stat="identity", 
                         stat_params=list(), 
                         geom="text",
@@ -72,7 +72,7 @@ shinyServer(function(input, output) {
                         position=position_identity()
                   ) +
                   layer(data=df2(), 
-                        mapping=aes(x=DISTRICTNAME, y=EMH, fill=KPI.1), 
+                        mapping=aes(x=FINAL_PLANTYPE, y=EMH, fill=KPI.1), 
                         stat="identity", 
                         stat_params=list(), 
                         geom="tile",
