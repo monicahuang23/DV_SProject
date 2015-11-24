@@ -9,7 +9,7 @@ navbarPage(
        textInput(inputId = "title", 
                  label = "Scatter Plot Title",
                  value = "Scatter Plot"),
-       actionButton(inputId = "clicks1",  label = "Click me")
+       actionButton(inputId = "clicks1",  label = "Show the plot")
      ),
      
      mainPanel(plotOutput("distPlot1")
@@ -26,7 +26,7 @@ navbarPage(
        textInput(inputId = "title", 
                  label = "CrossTab Title",
                  value = "CrossTab"),
-       actionButton(inputId = "clicks2",  label = "Click me")
+       actionButton(inputId = "clicks2",  label = "Show the plot")
      ),
      
      mainPanel(plotOutput("distPlot2")
@@ -34,7 +34,19 @@ navbarPage(
   ),
   tabPanel(title = "Barchart",
      sidebarPanel(
-       actionButton(inputId = "clicks3",  label = "Click me")
+       checkboxInput(inputId = "avg_read",
+                     label = strong("Show average reading growth grades"),
+                     value = FALSE),
+       
+       checkboxInput(inputId = "avg_math",
+                     label = strong("Show average math growth grades"),
+                     value = FALSE),
+
+       checkboxInput(inputId = "avg_write",
+                     label = strong("Show average writing growth grades"),
+                     value = FALSE),
+       
+       actionButton(inputId = "clicks3",  label = "Show the plot")
      ),
      
      mainPanel(plotOutput("distPlot3")
