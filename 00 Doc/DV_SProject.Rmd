@@ -1,7 +1,36 @@
 ---
 title: "DV_SProject"
 author: "Monica and Rachel"
-date: "November 21, 2015"
+date: "November 23, 2015"
 output: html_document
 ---
+
+##**Shiny Url**  
+
+https://rarthur.shinyapps.io/datavis-app  
+
+##**Scatter Plot**
+
+**1)** To produce our scatter plot we first selected all of the data from our final_grades database, showing data from a four year study of colorado schools.  
+
+**2)** We then plotted the School Performance Framework graduation rate against the ranking of the schools.  
+
+**3) Observations:** We can see from the graph that as the ranking of the school goes up (value goes down), the graduation rate of the schools increases. The color of the graph represents different Plantypes of the different schools. We can see from the graph that there is a cluster of Performance Plan type schools near the higher ranking schools and the higher graduation rates. Thus, we can conclude from this graph that schools with the Performance Plan tend to have higher rankings as well as higher graduation rates.  
+
+
+##**Cross Tab**  
+  
+**1)** To produce the cross tab we selected the district names and the type of school.  
+  
+**2)** We calculated a KPIs that label whether the school is a 'Great', 'Average', or 'Ok' School based on rank. Any school under the ranking of 1000 is considered 'Great'. Any school between 1000 and 10000 is considered 'Average', and all others are considered 'Ok'.  
+  
+**3) Observations:** We can see that most A schools and high schools tend to be in the 'Great' label, while other schools tend to vary between the three categories. 
+
+##**Bar Chart**  
+  
+**1)** To produce the cross tab we selected the final plantype and found the average weighted growth grade and average ranking. We grouped by final plantype.
+  
+**2)** We plotted the final plantype against the average weighted growth grade, and colored by the ranking total.
+  
+**3) Observations:**  Schools marked "AEC" are alternative education campuses, similar to "A" schools. These schools performed much lower than the other other schools. What's interesting is that these schools also had low rank totals (closer to 1), which means that they were ranked quite highly. Performance plans also scored the best for both AEC and regular schools.
 
